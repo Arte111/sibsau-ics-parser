@@ -1,0 +1,13 @@
+line-length = 100
+target-version = "py311"
+
+[lint]
+select = [
+    "E", "F", "W", "I", "N", "UP", "B", "C4", "SIM",
+    "RUF", "PERF", "S", "ARG", "DTZ", "PTH", "BLE",
+]
+# RUF001-003: проект намеренно написан с русскими строками и комментариями
+ignore = ["RUF001", "RUF002", "RUF003", "S101"]
+
+[format]
+quote-style = "double"

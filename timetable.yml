@@ -1,0 +1,30 @@
+name: Обновление расписания
+
+on:
+  schedule:
+    # каждые 6 часов; время в UTC, запуск может задержаться на десятки минут
+    - cron: "17 */6 * * *"
+  workflow_dispatch: {}
+  push:
+    paths:
+      - "sibsau_timetable.py"
+      - "config.toml"
+      - ".github/workflows/timetable.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: timetable
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv run --script sibsau_timetable.py

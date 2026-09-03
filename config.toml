@@ -1,0 +1,22 @@
+# Часовой пояс университета
+timezone = "Asia/Krasnoyarsk"
+
+# Границы семестра. Закомментируйте — посчитаются автоматически
+# (сен–дек для осеннего семестра, фев–июн для весеннего).
+semester_start = 2026-09-01
+semester_end   = 2026-12-31
+
+# Если 1-я и 2-я недели определились наоборот — поставьте 1.
+week_offset = 0
+
+# Каталог для .ics внутри репозитория и адрес, по которому он доступен.
+subdir = "timetable"
+base_url = "https://arte111.github.io/"
+branch = "main"
+
+# id — число из URL https://timetable.pallada.sibsau.ru/timetable/group/<id>
+# subgroup: 0 — все подгруппы, 1 или 2 — только своя.
+[[groups]]
+id = 15273
+subgroup = 0
+
